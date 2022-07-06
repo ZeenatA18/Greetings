@@ -17,7 +17,7 @@ btn.addEventListener("click", () => {
   if (radioBtn && namee.value) {
     var lingo = radioBtn.value
     let duplicates = greeting.setNames(namee.value)
-    alert(duplicates)
+    // alert(duplicates)
 
     if (duplicates === true) {
       document.querySelector(".message").innerHTML = greeting.greet(namee.value, lingo)
