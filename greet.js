@@ -37,10 +37,6 @@ btn.addEventListener("click", () => {
     return;
   }
 
-  // if (radioBtn == "") {
-  //   msg.innerHTML = "Enter you name!"
-  //   return;
-  // }
 })
 
 reset.addEventListener("click", () => {
