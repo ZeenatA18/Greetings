@@ -1,55 +1,47 @@
 const namee = document.querySelector(".NameEntered");
-const english = document.querySelector(".engRadio")
-const afrikaans = document.querySelector(".afrRadio")
-const isixhosa = document.querySelector(".isiRadio")
+const radioBtn = document.querySelector(".radio")
 const btn = document.querySelector(".button")
 const msg = document.querySelector(".message")
+const counter = document.querySelector(".counter")
+const reset = document.querySelector(".reset")
 
+let greeted = localStorage.getItem("Names")
+let greetNames = JSON.parse(greeted)
 
-// let greeting = Greetings();
+const greeting = Greetings(greetNames);
 
 btn.addEventListener("click", () => {
-// alert("Hey Hi Hello")
-    let language = document.querySelector("#radio:checked");
-let lingo = language.value;
-let personName = namee.value
-    // if (checkedbutton) {
-    //     var language = (checkedbutton.value);
 
+  var radioBtn = document.querySelector("input[name='language']:checked");
 
-        // document.querySelector(".msg).innerHTML = greeting.greet(namee.value , language.value);
+  if (radioBtn && namee.value) {
+    var lingo = radioBtn.value
 
-        if (lingo === "eng") {
-            msg.innerHTML = "Hello, " + personName + "🤝"
-        } else if (lingo === "afr") {
-            msg.innerHTML = "Goeie dag, " + personName + "👋"
-        } else if (lingo === "isi") {
-            msg.innerHTML = "Molo, " + personName + "😄"
-        }
-    })
+    let duplicates = greeting.setNames(namee.value)
+    // alert(duplicates)
 
+    if (duplicates === true) {
+      document.querySelector(".message").innerHTML = greeting.greet(namee.value, lingo)
+      document.querySelector(".counter").innerHTML = greeting.nameCount()
+      localStorage.setItem("Names", JSON.stringify(greeting.getNames()));
+      return;
+    }
+    else {
+      document.querySelector(".message").innerHTML = "duplicate"
+      return
+    }
+  }
 
+  if (namee.value == "") {
+    msg.innerHTML = "Enter you name!"
+    return;
+  }
 
-// function greetLanguage() {
+})
 
-//     var checkedbutton = document.querySelector("input[name='language']:checked");
+reset.addEventListener("click", () => {
+  localStorage.clear();
+  location.reload()
+  document.querySelector("msg") = "";
 
-//     if (checkedbutton) {
-//         var language = (checkedbutton.value);
-
-//         document.querySelector(".namee").innerHTML = greeting.greet(text.value , language);
-
-//         // if (language === "eng") {
-//         //     greeting.greet(personName, language)
-//         // } else if (language === "afr") {
-//         //     greeting.greet(personName, language)
-//         // } else if (language === "isi") {
-//         //     greeting.greet(personName, language)
-//         // }
-//     }
-// }
-
-// english.innerHTML = greeting();
-// afrikaans.innerHTML = greeting();
-// isixhosa.innerHTML = greeting();
-// namee.innerHTML = greeting();
+})
