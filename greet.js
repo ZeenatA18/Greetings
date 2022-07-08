@@ -12,36 +12,58 @@ const greeting = Greetings(greetNames);
 
 btn.addEventListener("click", () => {
 
-  var radioBtn = document.querySelector("input[name='language']:checked");
+    var radioBtn = document.querySelector("input[name='language']:checked");
+    regexx(namee)
 
-  if (radioBtn && namee.value) {
-    var lingo = radioBtn.value
+    if (radioBtn && namee.value) {
+        var lingo = radioBtn.value
 
-    let duplicates = greeting.setNames(namee.value)
-    // alert(duplicates)
+        let duplicates = greeting.setNames(namee.value)
+        // alert(duplicates)
+       
 
-    if (duplicates === true) {
-      document.querySelector(".message").innerHTML = greeting.greet(namee.value, lingo)
-      document.querySelector(".counter").innerHTML = greeting.nameCount()
-      localStorage.setItem("Names", JSON.stringify(greeting.getNames()));
-      return;
+        if (duplicates === true) {
+            document.querySelector(".message").innerHTML = greeting.greet(namee.value, lingo)
+            document.querySelector(".counter").innerHTML = greeting.nameCount()
+            localStorage.setItem("Names", JSON.stringify(greeting.getNames()));
+            return;
+        }
+        else {
+            document.querySelector(".message").innerHTML = "duplicate"
+            return
+        }
     }
-    else {
-      document.querySelector(".message").innerHTML = "duplicate"
-      return
-    }
-  }
 
-  if (namee.value == "") {
-    msg.innerHTML = "Enter you name!"
-    return;
-  }
+    function regexx(names) {
+        var alphabets = /\d/g
+        if (alphabets.test(names)) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+
+    // console.log(namee.value == '' && radioBtn == undefined)
+    if (namee.value == '' && radioBtn == undefined) {
+        msg.innerHTML = "Enter name & Select a language"
+    } else if (/\d/g.test(namee)) {
+        msg.innerHTML = "Use Alphabets only";
+        return;
+    } else if (namee.value == '') {
+        msg.innerHTML = "Enter you name!"
+        return;
+    } else if (radioBtn == undefined) {
+        msg.innerHTML = "Select Language";
+        return;
+    }
 
 })
 
+
 reset.addEventListener("click", () => {
-  localStorage.clear();
-  location.reload()
-  document.querySelector("msg") = "";
+    localStorage.clear();
+    location.reload()
+    document.querySelector("msg") = "";
 
 })
