@@ -28,11 +28,6 @@ describe("Greet function", function () {
   
       })
 
-    // it("Should get the stored names entered into empty array", function () {
-
-    //     assert.equal(getNames());
-
-    // })
-
+   
 
 })
