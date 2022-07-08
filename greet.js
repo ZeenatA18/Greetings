@@ -34,14 +34,14 @@ btn.addEventListener("click", () => {
         }
     }
 
-    function regexx(names) {
-        var alphabets = /\d/g
-        if (alphabets.test(names)) {
-            return true
-        } else {
-            return false
-        }
-    }
+    // function regexx(names) {
+    //     var alphabets = /\d/g
+    //     if (alphabets.test(names)) {
+    //         return true
+    //     } else {
+    //         return false
+    //     }
+    // }
 
 
     // console.log(namee.value == '' && radioBtn == undefined)
