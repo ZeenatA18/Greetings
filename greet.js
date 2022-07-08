@@ -16,6 +16,7 @@ btn.addEventListener("click", () => {
 
   if (radioBtn && namee.value) {
     var lingo = radioBtn.value
+
     let duplicates = greeting.setNames(namee.value)
     // alert(duplicates)
 
@@ -36,10 +37,6 @@ btn.addEventListener("click", () => {
     return;
   }
 
-  if (radioBtn == "") {
-    msg.innerHTML = "Enter you name!"
-    return;
-  }
 })
 
 reset.addEventListener("click", () => {
