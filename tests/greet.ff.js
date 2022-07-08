@@ -4,11 +4,7 @@ function Greetings(list) {
 
 
     function greet(personName, language) {
-        // var alphabets =  /\d/g
 
-        // // console.log(alphabets.test(personName))
-        // if (regexx(personName) === true){
-        //     if(personName){
         if (language === "eng") {
             return "Hello, " + personName
         } else if (language === "afr") {
@@ -17,54 +13,38 @@ function Greetings(list) {
             return "Molo, " + personName
         }
     }
-// }
-// else if(regexx(personName) === false){
-//     return "Use Alphabets only"
-// }
 
-
-// }
-
-function errorMessenges(name) {
-    if (storedNames.includes(name)) {
-        return true
-    }
-    return false
-}
-
-function setNames(personName) {
-    if (errorMessenges(personName) === false) {
-        storedNames.push(personName)
-        return true
-    }
-    else {
-        return false;
+    function errorMessenges(name) {
+        if (storedNames.includes(name)) {
+            return true
+        }
+        return false
     }
 
-}
+    function setNames(personName) {
+        if (errorMessenges(personName) === false) {
+            storedNames.push(personName)
+            return true
+        }
+        else {
+            return false;
+        }
 
-function getNames() {
-    return storedNames
-}
+    }
 
-function nameCount() {
-    return storedNames.length
-}
+    function getNames() {
+        return storedNames
+    }
 
-// function regexx(names) {
-//     var alphabets = /\d/g
-//     if (alphabets.test(names)) {
-//         return true
-//     } else {
-//         return false
-//     }
-// }
+    function nameCount() {
+        return storedNames.length
+    }
 
-return {
-    greet,
-    setNames,
-    getNames,
-    nameCount,
-    errorMessenges
-}
+    return {
+        greet,
+        setNames,
+        getNames,
+        nameCount,
+        errorMessenges,
+    }
 }
