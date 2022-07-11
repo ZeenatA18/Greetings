@@ -31,7 +31,7 @@ btn.addEventListener("click", () => {
             // return;
         }
         else {
-            document.querySelector(".message").innerHTML = "duplicate"
+            document.querySelector(".message").innerHTML = "This name is a Duplicate please enter a different name"
             // return
         }
     }
@@ -41,16 +41,16 @@ btn.addEventListener("click", () => {
                msg.innerHTML = "Enter name & Select a language"
          
            } else if (namee.value == '') {
-               msg.innerHTML = "Enter you name!"
+               msg.innerHTML = "Enter you name"
                return;
            } else if (radioBtn == undefined) {
-               msg.innerHTML = "Select Language";
+               msg.innerHTML = "Select a Language";
                return;
            }
     }
     }
     else {
-        msg.innerHTML = "name with numbers";
+        msg.innerHTML = "Use Alphabets only";
 
     }
 })
